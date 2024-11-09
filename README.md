@@ -39,7 +39,7 @@ Welcome to **Snake Game Evo**! A modern twist on the classic snake game with exc
 
 
 ### 🎥 Gameplay Video
-[Watch how the game is played!](ReadMeassets/demo_video.mp4)  
+[Watch how the game is played!](ReadMeassets/demo_video.gif)  
 *A video demo showcasing the gameplay mechanics and visual elements.*
 
 ---
