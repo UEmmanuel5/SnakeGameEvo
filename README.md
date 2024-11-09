@@ -25,7 +25,7 @@ Welcome to **Snake Game Evo**! A modern twist on the classic snake game with exc
 
 ## 📸 Screenshots & Demo
 
-### 🏠 Homepage
+### 🏠 Welcome page
 ![Welcome page Screenshot](ReadMeassets/welcomepage.png)  
 *The welcome page to welcome players*
 
@@ -33,7 +33,7 @@ Welcome to **Snake Game Evo**! A modern twist on the classic snake game with exc
 ![Login Screenshot](ReadMeassets/loginpage.png)  
 *Login page where players enter their details.*
 
-### 🏠 Homepage
+### 🏠 Gameplay page
 ![Gameplay Screenshot](ReadMeassets/gameplaypage.png)  
 *The main game screen showing the snake and grid.*
 
