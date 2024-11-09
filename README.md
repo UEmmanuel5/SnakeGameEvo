@@ -55,5 +55,3 @@ Welcome to **Snake Game Evo**! A modern twist on the classic snake game with exc
 ## 🎯 Can you hit 500 points?  
 Jump into the game and see how high you can score. Let the color evolution begin!
 
----
-[![GitHub License](https://img.shields.io/github/license/your-username/snake-game-evo)](LICENSE)
