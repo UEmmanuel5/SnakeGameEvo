@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.admin {
+    color: red;
+    font-style: oblique;
+    font-weight: bolder;
+}
+
+/* Header */
+.btn-top {
+    width: 120px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.sz {
+    font-size: 20px;
+    margin: 20px 0;
+    background-color: yellow;
+}
+
+.btn-top:hover {
+    background-color: darkred;
+    border-color: darkred;
+}
+
+/* Hero Section */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.snake-bkg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    /* Place the background image behind the text */
+}
+
+.hero-content {
+    position: relative;
+    color: black;
+    /* Text color for visibility */
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    margin: 10px 0;
+}
+
+/* Card Section */
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.card {
+    background-color: #babeb9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #666;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    background-color: pink;
+}
+
+footer p {
+    width: 100%;
+    font-family: 'Poppins';
+    font-style: oblique;
+    font-weight: 50px;
+}
+
+.my-logo {
+    width: 100px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.social {
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+footer p:nth-child(3) {
+    text-decoration: underline red;
+}
+
+@media screen and (max-width:660px) {
+    header ul li {
+        font-size: 15px;
+    }
+
+    #cont h3 {
+        font-size: 20px;
+        text-wrap: nowrap;
+    }
+
+    .demo-video video {
+        width: 1000px;
+    }
+}
+
+.top-items {
+    margin: 14px auto;
+    width: 80%;
+}
+
+.top-items h1 {
+    padding: 12px 0;
+    text-align: center;
+}
+
+.top-items table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+td,
+th {
+    border: 1px solid purple;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.top-items .in-text-2 {
+    color: red;
+}
+
+.tab-title {
+    font-size: x-large;
+}
+
+.data-siz {
+    font-size: larger;
+    font-style: oblique;
+    font-weight: bold;
+}

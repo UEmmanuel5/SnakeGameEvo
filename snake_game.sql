@@ -1,0 +1,4 @@
+-- CREATE A TABLE FOR THE high_score
+-- CREATE A TABLE FOR THE player_score
+-- CREATE A TABLE FOR THE create_player_account
+-- CREATE A TABLE FOR THE admin
