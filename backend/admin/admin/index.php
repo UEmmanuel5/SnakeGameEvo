@@ -11,32 +11,32 @@ if (isset($_POST['submit'])) {
 
     if (!empty($username) && !empty($password)) {
         // Prepare the statement to prevent SQL injection
-        $stmt = $conn->prepare("SELECT * FROM create_player_account WHERE username = ?");
+        $stmt = $conn->prepare("SELECT * FROM admin WHERE name = ?");
         $stmt->bind_param("s", $username);
         echo "help me====";
         if ($stmt->execute()) {
             // Capture the data from the database
             $result = $stmt->get_result();
             if ($result->num_rows > 0) {
-                $player = $result->fetch_assoc();
-                $dbPassword = $player['password'];
+                $admin = $result->fetch_assoc();
+                $dbPassword = $admin['password'];
 
                 // Verify the password
                 if (password_verify($password, $dbPassword)) {
                     // Set session variables
                     session_regenerate_id(true);
                     $_SESSION["session_token"] = bin2hex(random_bytes(32)); // Generate a secure random token
-                    $_SESSION['username'] = $player['username'];
-                    $_SESSION['logged-in'] = true;
+                    $_SESSION['admin'] = $admin['name'];
+                    $_SESSION['logged-in-admin'] = true;
 
                     // Redirect to the game page
-                    header("Location: ../../game.php");
+                    header("Location: ./admin_action/home.php");
                     exit();
                 } else {
                     $message = "Incorrect Password. Please try again.";
                 }
             } else {
-                $message = "Player does not exist. Please check your username.";
+                $message = "admin does not exist. Please check your username.";
             }
         } else {
             $message = "Database query failed. Please try again.";
@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
             <div class="alert"><?php echo $message; ?></div>
         <?php endif; ?>
 
-        <form action="login.php" method="post">
+        <form action="index.php" method="post">
             <div class=" input1">
                 <label for="username">
                     <input type="text" id="username" placeholder="Username" name="username" autocomplete="off" required>
@@ -103,7 +103,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <button type="submit" class="submitbtn" name="submit">Login</button><br>
-            <span>Don't have an account yet?</span><a href="create.php" class="signup">Sign up</a>
+            <span>Don't have an account yet?</span><a href="createAdmin.php" class="signup">Sign up</a>
 
         </form>
 

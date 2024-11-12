@@ -1,6 +1,7 @@
 class Player {
     constructor(name) {
         this.name = name;
+        this.high_score = playerHighScoreFromServer;
         this.score = 0;
     }
 
@@ -14,7 +15,7 @@ class Player {
         this.score = 0;
     }
 
-    // Method to get player details as an object (for potential backend usage)
+    // Method to get player details as an object
     getDetails() {
         return {
             name: this.name,

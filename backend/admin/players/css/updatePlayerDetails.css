@@ -1,0 +1,63 @@
+* {
+    font-family: "Poppins";
+}
+
+.btn-cont {
+    text-align: center;
+    padding: 40px;
+}
+
+.btn-cont p {
+    font-size: 20px;
+}
+
+.return-btn {
+    color: black;
+    background-color: red;
+    width: 90px;
+    height: 40px;
+    border: 1px solid red;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+}
+
+.return-btn:hover {
+    background-color: gray;
+    border-color: gray;
+}
+
+#playerDetails {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+    background-color: pink;
+}
+
+.player-img {
+    text-align: center;
+}
+
+.player-img img {
+    width: fit-content;
+    height: 700px;
+}
+
+#playerDetails table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 70px;
+}
+
+td,
+th {
+    border: 1px solid purple;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

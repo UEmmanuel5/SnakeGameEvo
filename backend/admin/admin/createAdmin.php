@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 include "../../../includes/config.php";
 
@@ -10,42 +9,25 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
 
     if (!empty($username) && !empty($password)) {
-        // Prepare the statement to prevent SQL injection
-        $stmt = $conn->prepare("SELECT * FROM create_player_account WHERE username = ?");
-        $stmt->bind_param("s", $username);
-        echo "help me====";
+        //Hashing the passowrd
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        $stmt = $conn->prepare("INSERT INTO admin (name, password) VALUES (?,?)");
+        $stmt->bind_param("ss", $username, $hashed_password);
+
         if ($stmt->execute()) {
-            // Capture the data from the database
-            $result = $stmt->get_result();
-            if ($result->num_rows > 0) {
-                $player = $result->fetch_assoc();
-                $dbPassword = $player['password'];
-
-                // Verify the password
-                if (password_verify($password, $dbPassword)) {
-                    // Set session variables
-                    session_regenerate_id(true);
-                    $_SESSION["session_token"] = bin2hex(random_bytes(32)); // Generate a secure random token
-                    $_SESSION['username'] = $player['username'];
-                    $_SESSION['logged-in'] = true;
-
-                    // Redirect to the game page
-                    header("Location: ../../game.php");
-                    exit();
-                } else {
-                    $message = "Incorrect Password. Please try again.";
-                }
-            } else {
-                $message = "Player does not exist. Please check your username.";
-            }
+            // Redirecting after successful account creation
+            header("Location: redirect/adminRedirect.php");
+            exit();
         } else {
-            $message = "Database query failed. Please try again.";
+            $message = "Failed to create the account!!!";  //Handling creating an account error
         }
     } else {
-        $message = "Please ensure all fields are filled!";
+        $message = "Error: Ensure all fields are filled!!!";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,8 +43,8 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- font awesome end  -->
 
-    <link rel="stylesheet" href="./css/login.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="./css/create-2.css">
+    <title>Create an Account</title>
     <style>
         .alert {
             color: red;
@@ -73,14 +55,14 @@ if (isset($_POST['submit'])) {
 <body>
 
     <div class="login-box">
-        <h1>Login</h1>
+        <h1>Create an Account</h1>
 
         <!-- Display success/error message -->
         <?php if ($message) : ?>
             <div class="alert"><?php echo $message; ?></div>
         <?php endif; ?>
 
-        <form action="login.php" method="post">
+        <form action="createAdmin.php" method="post">
             <div class=" input1">
                 <label for="username">
                     <input type="text" id="username" placeholder="Username" name="username" autocomplete="off" required>
@@ -102,8 +84,8 @@ if (isset($_POST['submit'])) {
                 <a href="#" class="forgot_password">Forgot Password</a>
             </div>
 
-            <button type="submit" class="submitbtn" name="submit">Login</button><br>
-            <span>Don't have an account yet?</span><a href="create.php" class="signup">Sign up</a>
+            <button type="submit" class="submitbtn" name="submit">Submit</button><br>
+            <span>Don't have an account yet?</span><a href="#" class="signup">Sign up</a>
 
         </form>
 

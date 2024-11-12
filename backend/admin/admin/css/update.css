@@ -1,0 +1,141 @@
+* {
+    border: 0;
+    padding: 0;
+    color: black;
+    font-family: 'Poppins';
+}
+
+/* Create.php Section */
+
+#form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 300px 600px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+body {
+    background: yellow;
+}
+
+.logo {
+    width: 40px;
+    width: 40px;
+}
+
+.form-logo {
+    text-align: center;
+}
+
+.mb-3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-control {
+    margin: 4px 0;
+}
+
+.form-label {
+    width: 100%;
+}
+
+.form-control {
+    width: 500px;
+    height: 34px;
+    border-radius: 5px;
+}
+
+.mb-3 p {
+    width: 100%;
+}
+
+.form-btn {
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 2px solid #c5c509;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.form-btn:hover {
+    background-color: gray;
+    transform: translateY(-4px);
+}
+
+/* View.php Section */
+
+.table {
+    margin: 0;
+    max-width: 100%;
+}
+
+.table thead {
+    text-decoration: underline;
+}
+
+.data-info {
+    padding: 0 80px;
+}
+
+.btn-primary {
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 2px solid white;
+    background-color: rgb(66, 66, 252);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-data-info {
+    padding: 0 80px;
+    max-width: fit-content;
+
+}
+
+.btn-danger {
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 2px solid white;
+    background-color: red;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-danger:hover,
+.btn-primary:hover {
+    background-color: gray;
+    transform: translateY(-4px);
+}
+
+.text-light {
+    text-decoration: none;
+    color: white;
+}
+
+@media only screen and (max-width: 900px) {
+    .form-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .create-form {
+        width: 300px;
+    }
+
+}
