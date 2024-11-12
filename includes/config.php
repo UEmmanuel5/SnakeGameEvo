@@ -1,6 +1,6 @@
 <?php
 
-$server = "localhost	";
+$server = "localhost";
 $username = "root";
 $password = "";
 $dbname = "snake_game";
