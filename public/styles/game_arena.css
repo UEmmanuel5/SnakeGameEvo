@@ -17,3 +17,8 @@
 .grid-cell {
     border: 1px solid black;
 }
+
+#goat-scream,
+#snake-eats {
+    display: none;
+}

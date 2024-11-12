@@ -24,6 +24,8 @@ if (isset($_POST['submit'])) {
                 // Verify the password
                 if (password_verify($password, $dbPassword)) {
                     // Set session variables
+                    session_regenerate_id(true);
+                    $_SESSION["session_token"] = bin2hex(random_bytes(32)); // Generate a secure random token
                     $_SESSION['username'] = $player['username'];
                     $_SESSION['logged-in'] = true;
 

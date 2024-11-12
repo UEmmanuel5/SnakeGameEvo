@@ -8,6 +8,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = 600;
 canvas.height = 500;
 const cellSize = 20;
+let currentScore = 0;
 
 // Initialize player
 export const player = new Player("Player1");
@@ -69,7 +70,9 @@ class Snake {
         // Check game over condition
         if (checkGameOver(newHeadPosition, this.body.segments, canvas)) {
             clearInterval(gameLoop);
-            alert("Game Over!");
+            currentScore = player.score;
+            sendScoreToServer(currentScore); // Send score to server
+            alert("Game Over! #### ~~~Refresh This Page to continue ~~~####");
             return;
         }
 
@@ -114,6 +117,7 @@ class Head {
         switch (direction) {
             case 'ArrowUp':
                 newPosition.y -= cellSize;
+                console.log("newPosition:", newPosition, "cellSize: ", cellSize);
                 break;
             case 'ArrowDown':
                 newPosition.y += cellSize;
@@ -155,6 +159,27 @@ class Body {
             ctx.fillRect(segment.x, segment.y, cellSize, cellSize);
         });
     }
+}
+
+// Function to send the current score to the server
+function sendScoreToServer(score) {
+    fetch('../../new_snake_game/backend/admin/players/playerScore.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ score: score }),
+    })
+        .then(response => response.text()) // Read as text initially to debug
+        .then(data => {
+            console.log("Raw response:", data); // Check the raw response here
+            const jsonData = JSON.parse(data); // Parse JSON after verifying response
+            console.log("Score sent successfully:", jsonData);
+        })
+        .catch(error => {
+            console.error("Error sending score:", error);
+        });
+
 }
 
 // Function to draw the grid on the canvas
